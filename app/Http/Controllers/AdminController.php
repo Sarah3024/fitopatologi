@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Users;
 use App\Role;
+use App\Order;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -111,11 +112,21 @@ class AdminController extends Controller
 
     public function indexorder()
     {
-        return view('admin/order-mng');
+        $order = Order::all();
+
+        return view('admin/order-mng', ['order' => $order]);
     }
     public function indexinvoice()
     {
         return view('admin/detail-order');
     }
 
+    public function ViewDetail(Request $request)
+    {
+        $id_order = $request->id;
+
+        $order = Order::find($id_order);
+
+        return view('admin/order-mng-view', ['order' => $order]);
+    }
 }

@@ -10,6 +10,7 @@ class Order extends Model
     protected $table = 'order';
     protected $primaryKey = 'id_order';
     public $timestamps = false;
+    protected $dateFormat = 'dd MMM YYYY';
 
      private $rules = array(
         'quantity_order' => 'required',

@@ -26,6 +26,7 @@ class Ordered extends Model
         $this->v = $v;
         // return the result
         return $result;
+    }
         
     public function get_validataion_msg() {
     	return $this->v->messages();

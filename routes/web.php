@@ -23,6 +23,7 @@ Route::post('/register','Auth\LoginController@register');
 // Route::get('/admin-login', 'LoginController@adminlogin')->name('admin-login');
 
 Route::get('/', 'HomeController@uindex1')->name('fungi');
+Route::post('/', 'HomeController@RegisterCustomer');
 Route::get('/service', 'HomeController@uindex2')->name('service');
 Route::get('/detail', 'HomeController@view')->name('fungi-detail');
 Route::get('search', 'HomeController@search');
@@ -42,13 +43,13 @@ Route::get('/delete/{id_users}', 'AdminController@destroy')->name('user-delete')
 Route::get('/admin-user-role', 'AdminController@userrole')->name('user-role');
 // Route::post('/admin-user-mng', 'AdminController@adduser');
 Route::get('/admin-order-mng', 'AdminController@indexorder')->name('order-mng');
+Route::get('/admin-order-mng-view', 'AdminController@ViewDetail')->name('order-mng-view');
 Route::get('/admin-detail-order', 'AdminController@indexinvoice')->name('detail-order');
 
 Route::get('/order-form', 'CustomerController@orderform')->name('order-form');
 Route::post('/order-form', 'CustomerController@orderisolat');
-Route::get('/customer-service', 'customerController@analysform')->name('cus.service');
-Route::post('/cutimer-service', 'CustomerController@analysisolat');
-
+Route::get('/customer-service', 'CustomerController@analysform')->name('cus.service');
+Route::post('/customer-service', 'CustomerController@analysisolat');
 
 Route::get('/deletefungi/{id_cendawan}', 'FungiController@destroy')->name('fungi-delete');
 Route::get('/deleteunverified/{id_cendawan}', 'FungiController@destroy2');

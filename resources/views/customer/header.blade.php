@@ -78,8 +78,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li {{{ (Request::is('/customer') ? 'class=active' : '') }}}><a href="{{ route('cus.fungi') }}">Fungi Collections <span class="sr-only">(current)</span></a></li>
-            <li {{{ (Request::is('customer-service') ? 'class=active' : '') }}}><a href="{{ route('cus.service') }}">Phitopatology Analysis Service</a></li>
+            <li {{{ (Request::is('/customer') ? 'class=active' : '') }}}><a href="{{ route('fungi') }}">Fungi Collections <span class="sr-only">(current)</span></a></li>
+            <li {{{ (Request::is('customer-service') ? 'class=active' : '') }}}><a href="{{ route('service') }}">Phitopatology Analysis Service</a></li>
+            <li {{{ (Request::is('order-form') ? 'class=active' : '') }}}><a href="{{ route('order-form') }}">Isolate Order</a></li>
            <!--  <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -101,11 +102,23 @@
         </div>
         <!-- /.navbar-collapse -->
         <!-- Navbar Right Menu -->
+        <?php if (\Auth::check()) { ?>
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
+          <?php if (\Auth::user()->isSpecialUser()) { ?> <li><a href="{{ route('dashboard') }}">Dashboard</a></li><?php } ?>
            <li><a href="{{ url('logout') }}">Logout</a></li>
           </ul>
         </div>
+        <?php } else { ?>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ route('login') }}">Login</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="{{ route('register') }}">Sign Up</a></li>
+          </ul>
+        </div>
+        <?php } ?>
         <!-- /.navbar-custom-menu -->
       </div>
       <!-- /.container-fluid -->

@@ -37,6 +37,25 @@
               <th>Type</th>
               <th></th>
             </tr>
+            @if (!empty($order))
+              @foreach($order as $item)
+                <tr>
+                  <td><?php echo date('d M Y', strtotime($item->date_order)); ?></td>
+                  <td><?php echo date('d M Y', strtotime($item->date_expire)); ?></td>
+                  <td>{{ $item->id_order }}</td>
+                  <td>
+                    @if ($item->typeOrder_id === 1)
+                      <span class="label label-primary">Isolate Ordering</span>
+                    @elseif ($item->typeOrder_id === 2)
+                      <span class="label label-warning">Isolate Analysis</span>
+                    @endif
+                  <td>
+                    <a class="btn btn-sm btn-primary" href="{{ route('order-mng-view') }}?id={{ $item->id_order }}">View Detail</a>
+                  </td>
+                  </td>
+                </tr>
+              @endforeach
+            @endif
             <tr>
               <td>10 Aug 2017</td>
               <td>10 Aug 2017</td>

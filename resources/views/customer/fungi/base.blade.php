@@ -6,6 +6,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header" style="background-color: #c5e1a5;padding-bottom:20px;">
         <h1>
+          <p>{{ $error_msg or "" }}</p>
           Phitopatology
           <small>Information System</small>
         </h1>

@@ -80,6 +80,7 @@
           <ul class="nav navbar-nav">
             <li {{{ (Request::is('/') ? 'class=active' : '') }}}><a href="{{ route('fungi') }}">Fungi Collections <span class="sr-only">(current)</span></a></li>
             <li {{{ (Request::is('service') ? 'class=active' : '') }}}><a href="{{ route('service') }}">Phitopatology Analysis Service</a></li>
+            <li {{{ (Request::is('order-form') ? 'class=active' : '') }}}><a href="{{ route('order-form') }}">Isolate Order</a></li>
            <!--  <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
